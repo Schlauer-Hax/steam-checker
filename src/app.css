@@ -1,0 +1,101 @@
+:root {
+	--bg-primary: #1b2838;
+	--bg-secondary: #2a475e;
+	--bg-card: #16202d;
+	--text-primary: #c7d5e0;
+	--text-secondary: #8f98a0;
+	--accent: #66c0f4;
+	--success: #5ba32b;
+	--warning: #f5a623;
+	--danger: #c7373b;
+	--native: #4fc3f7;
+	--platinum: #b4c7dc;
+	--gold: #cfb53b;
+	--silver: #a8a8a8;
+	--bronze: #cd7f32;
+	--borked: #ff0000;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+	background: var(--bg-primary);
+	color: var(--text-primary);
+	min-height: 100vh;
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	padding: 12px 24px;
+	border-radius: 4px;
+	font-size: 16px;
+	font-weight: 500;
+	transition: all 0.2s ease;
+}
+
+button:hover {
+	transform: translateY(-1px);
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.card {
+	background: var(--bg-card);
+	border-radius: 8px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.rating-platinum {
+	color: var(--platinum);
+	background: rgba(180, 199, 220, 0.2);
+}
+
+.rating-gold {
+	color: var(--gold);
+	background: rgba(207, 181, 59, 0.2);
+}
+
+.rating-silver {
+	color: var(--silver);
+	background: rgba(168, 168, 168, 0.2);
+}
+
+.rating-bronze {
+	color: var(--bronze);
+	background: rgba(205, 127, 50, 0.2);
+}
+
+.rating-borked {
+	color: var(--borked);
+	background: rgba(255, 0, 0, 0.2);
+}
+
+.rating-native {
+	color: var(--success);
+	background: rgba(91, 163, 43, 0.2);
+}
+
+.rating-unknown {
+	color: var(--text-secondary);
+	background: rgba(143, 152, 160, 0.2);
+}
