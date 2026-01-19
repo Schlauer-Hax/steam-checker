@@ -1,4 +1,4 @@
-import { STEAM_API_KEY } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 const STEAM_API_BASE = 'https://api.steampowered.com';
 
@@ -20,7 +20,7 @@ export interface SteamPlayer {
 
 export async function getOwnedGames(steamId: string): Promise<SteamGame[]> {
 	const url = new URL(`${STEAM_API_BASE}/IPlayerService/GetOwnedGames/v1/`);
-	url.searchParams.set('key', STEAM_API_KEY);
+	url.searchParams.set('key', env.STEAM_API_KEY || '');
 	url.searchParams.set('steamid', steamId);
 	url.searchParams.set('include_appinfo', '1');
 	url.searchParams.set('include_played_free_games', '1');
@@ -36,7 +36,7 @@ export async function getOwnedGames(steamId: string): Promise<SteamGame[]> {
 
 export async function getRecentlyPlayedGames(steamId: string, count: number = 50): Promise<SteamGame[]> {
 	const url = new URL(`${STEAM_API_BASE}/IPlayerService/GetRecentlyPlayedGames/v1/`);
-	url.searchParams.set('key', STEAM_API_KEY);
+	url.searchParams.set('key', env.STEAM_API_KEY || '');
 	url.searchParams.set('steamid', steamId);
 	url.searchParams.set('count', count.toString());
 
@@ -51,7 +51,7 @@ export async function getRecentlyPlayedGames(steamId: string, count: number = 50
 
 export async function getPlayerSummary(steamId: string): Promise<SteamPlayer | null> {
 	const url = new URL(`${STEAM_API_BASE}/ISteamUser/GetPlayerSummaries/v2/`);
-	url.searchParams.set('key', STEAM_API_KEY);
+	url.searchParams.set('key', env.STEAM_API_KEY || '');
 	url.searchParams.set('steamids', steamId);
 
 	const response = await fetch(url.toString());
